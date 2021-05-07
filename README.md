@@ -1,1 +1,2 @@
-# python_web_basic
+# [python] web_basic
+personal study
