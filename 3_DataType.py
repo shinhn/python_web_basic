@@ -81,7 +81,7 @@ print(complex(False))
 
 # 수치 연산 함수
 print(abs(-7)) # 절댓값
-n, m = 10, 20
+n, m = 30, 20
 n, m = divmod(100,8) # 100을 8로 나눈 몫을 n에, 나머지를 m에 대입함
 print(n,m)
 
