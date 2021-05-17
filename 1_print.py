@@ -1,10 +1,10 @@
 # print 구문의 이해
 
 # 기본출력
-print('Hello python!')
-print("Hello python!")
-print("""Hello python!""")
-print('''Hello python!''')
+print('Hello world!')
+print("Hello world!")
+print("""Hello world!""")
+print('''Hello world!''')
 
 print() # 아무것도 출력하지 않음 -> enter효과
 
