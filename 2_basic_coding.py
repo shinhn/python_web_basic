@@ -10,7 +10,7 @@ print(sys.stdout.encoding)
 # utf_8임을 알 수 있음
 
 # 출력문
-print('My name is shinhyeon.')
+print('My name is shinhyeon!')
 
 # 변수 선언
 name = 'shinhyeon'
