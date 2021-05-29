@@ -15,7 +15,7 @@ v_str1 = "Niceman"
 v_bool = True
 v_str2 = "Goodboy"
 v_float = 10.3
-v_int = 7
+v_int = 8
 v_dict = {
     "name" : "kim", # key_value
     "age" : 25
