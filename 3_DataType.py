@@ -88,3 +88,67 @@ print(n,m)
 import math
 print(math.ceil(5.1)) # 5.1보다 큰 정수중 가장 작은 정수
 print(math.floor(3.874)) # 3.874보다 작은 정수중 가장 큰 정수
+
+
+# 문자열
+
+str1 = "I am \"shinhyeonKang.\"" # 문자 그대로 출력할때 \(escape) 이용
+str2 = 'Man'
+str3 = ''
+str4 = ' '
+str5 = 'Tab\tTab\tTab' # \t 은 tap(= 공백4칸)을 해줌
+
+print(str1, len(str1))
+print(str2, len(str2))
+print(str3, len(str3))
+print(str4, len(str4))
+print(str5, len(str5))
+
+
+# Raw String
+
+raw_s1 = r'/Users/kangshinhyeon/documents/github/python_web_basic/bin'
+print(raw_s1)
+
+
+# 멀티라인
+# '\'을 통해 enter한 다음부터 내용임을 알려줌 (안해주고 enter바로 하면 오류)
+multi_line = \
+"""
+내용
+
+그대로
+
+출력
+"""
+print(multi_line)
+
+# 문자열 연산
+str_o1 = '*'
+str_o2 = 'abc'
+str_o3 = 'def'
+
+print(str_o1 * 100)
+print(str_o2 + str_o3)
+
+# in / not in 문자열안에 문자 혹은 문자열이 존재하는지 확인
+print('e' in str_o3)
+print('a' in str_o3)
+print('a' not in str_o3)
+
+# 문자열 형 변환
+print(str(77) + 'a')
+
+# 문자열 함수
+a = 'shinhyeon'
+print(a.capitalize()) # 첫번째 문자를 대문자로 변환
+print(a.replace('on', 'ON'))
+
+# 문자열 슬라이싱
+a = 'shinhyeon'
+print(a[0:3])
+print(a[0:4:2]) # 4까지 2개씩
+print(a[1:-2])
+print(a[::-1]) # -1부터 전부
+
+#리스트, 튜플
