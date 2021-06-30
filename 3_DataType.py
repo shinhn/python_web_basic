@@ -151,4 +151,55 @@ print(a[0:4:2]) # 4까지 2개씩
 print(a[1:-2])
 print(a[::-1]) # -1부터 전부
 
-#리스트, 튜플
+# 리스트
+
+# 리스트 : 순서 있음, 중복 허용, 수정 & 삭제 가능
+a = []
+b = list()
+c = [1, 2, 3, 4]
+d = [10, 100, 'apple', 'banana']
+e = [10, 100, ['apple', 'banana','orange']]
+
+# 인덱싱
+print(d[3])
+print(d[-2])
+print(e[2][1]) # 2번 index 요소의 1번 index 요소 출력
+
+# 슬라이싱
+print(d[0:3])
+print(e[2][0:2])
+
+# 연산
+print(c+d)
+print(c*3)
+print(str(c[0]) + 'list')
+
+# 삭제
+c[0] = 77
+print(c)
+
+c[1:2] = [100, 1000, 10000]
+print(c)
+c[1] = ['a','b','c']
+print(c)
+
+# 삭제
+del c[1]
+print(c)
+del c[-1]
+print(c)
+
+# 함수
+y = [5, 2, 3, 1, 4]
+print(y)
+y.append(6)
+print(y)
+
+y.sort()
+print(y)
+
+y.reverse()
+print(y)
+
+y.insert(2, 7) # 2번 index에 7삽입
+print(y)
