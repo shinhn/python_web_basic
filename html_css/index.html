@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- lang : 어떤 언어로 작성 되었는지 알림으로써 검색엔진이나 브라우저가 탐색할 수 있게 함 (en : english, ko : korean)-->
+    <head>
+        <!--인코딩 양식 지정 (인코딩 양식을 지정해주지 않으면 브라우저가 지원하는 언어가 다를 경우 깨질 위험이 있음)-->
+        <meta charset="UTF-8">
+
+        <!--반응형 웹사이트 제작을 위한 선언-->
+        <meta name="viewport" content="width = device - width, initial-scale = 1.0">
+
+        <!--익스플로어로 렌더링 할 경우 최신 엔진을 사용하게 하는 태그-->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Document</title>
+
+        <!--css 파일 연결-->
+        <link rel="stylesheet" href="./style.css">
+        <!--
+            상대요소 : 현재 내 위치에서의 파일 위치
+                ./style.css - 현재 위치에서 style.css
+                ../style.css - 상위 위치에서 style.css
+                ./document/style.css - 하위 특정 위치에서 style.css
+
+            절대요소 : 파일 절대 위치
+                /Users/kangshinhyeon/Documents/github/python_web_basic/html_css/style.css
+        -->
+        <link rel="stylesheet" href="./normalize.css">
+
+        <!-- 
+            google.fonts에서 font 받아오기 
+            훔페이지에서 원하는 폰트 선택 후
+            To embed a font, copy the code into the <head> of your html
+        -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header class="header">
+            <div class="container">
+                <h1 class="logo">
+                    <img
+                        src="https://static.djangoproject.com/img/logo-django.42234b631760.svg"
+                        alt="Django"
+                    >
+                    <!--alt 특성은 이미지의 텍스트 설명이며 필수는 아니지만,
+                        스크린 리더가 alt의 값을 읽어 사용자에게 이미지를 설명하므로, 접근성 차원에서 매우 유용합니다.
+                        또한 네트워크 오류, 콘텐츠 차단, 죽은 링크 등 이미지를 표시할 수 없는 경우에도 이 속성의 값을 대신 보여줍니다.-->
+                </h1>
+                <nav class="nav">
+                    <ul class="list">
+                        <li class="list-item"><a href="#">Overview</a></li> <!-- (li>a)*8 단축 입력하면 <li><a href=""></a></li> 8개 한번에 입력 가능 -->
+                        <li class="list-item"><a href="#">Download</a></li>
+                        <li class="list-item"><a href="#">Documentation</a></li>
+                        <li class="list-item"><a href="#">News</a></li>
+                        <li class="list-item"><a href="#">Community</a></li>
+                        <li class="list-item"><a href="#">Code</a></li>
+                        <li class="list-item"><a href="#">About</a></li>
+                        <li class="list-item"><a href="#">Donate</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- MAIN -->
+        <main class="main">
+            <div class="hero-section">
+                <div class="container">
+                    <p class="intro-desc">
+                        Django makes it easier to build better Web<br>
+                        apps more quickly and with less code.
+                    </p>
+                    <a href="https://www.djangoproject.com/start/" class="cta">
+                        Get started with Django
+                    </a>
+                </div>
+            </div>
+            <div class="container-float">
+
+                <div class="main-content">
+                    <h3>Stay in the loop</h3>
+                    <p>Subscribe to one of our mailing lists to stay up to data with everything in the Django communiy.</p>
+                    <div class="mailing">
+                        <a href="#" class="mailing-title">Using Django</a>
+                        <p class="mailing-desc">
+                            Get help with Django and follow announcements.
+                        </p>
+                        <form action="#" class="mailing-form">
+                            <!-- <label> : <input> 태그가 디자인 하기 힘들 때 <label> 태그로 연결해서 쉽게 디자인하거나 클릭 편의성을 높일 수 있다. => label의 for와 input의 id가 서로 동일해야 함 -->
+                            <label for="input-following">send email for following news</label>
+                            <input 
+                                type="email" 
+                                placeholder="Enter email" 
+                                id="input-following" 
+                                name="input-following"
+                            > <!-- name : 서버에서 데이터를 가져올때 사용하는 이름-->
+                            <button type="submit" class="mailing-form-btn">Submit</button>
+                        </form>
+                        <p class="mailing-desc">
+                            You can also subscribe by sending an email to django-users+subscribe@googlegroups.com and following the instructions that will be sent to you.
+                        </p>
+                    </div>
+
+                    <div class="mailing">
+                        <a href="#" class="mailing-title">Contributing to Django</a>
+                        <p class="mailing-desc">
+                            Contribute to the development of Django itself.
+                        </p>
+                        <form action="#" class="mailing-form">
+                            <label for="input-contributing">send email for contribution</label> 
+                            <input 
+                                type="email" 
+                                placeholder="Enter email" 
+                                id="input-contributing" 
+                                name="input-contributing"
+                            > 
+                            <button type="submit" class="mailing-form-btn">Submit</button>
+                        </form>
+                        <p class="mailing-desc" id="mailing-desc-contr2">
+                            Before asking a question about how to contribute, read Contributing to Django. Many frequently asked questions are answered there.
+                        </p>
+                        <p class="mailing-desc">
+                            You can also subscribe by sending an email to django-developers+subscribe@googlegroups.com and following the instructions that will be sent to you.
+                        </p>
+                    </div>
+                </div>
+                <div class="side-content">
+                    <a href="#" class="cta">Download latest release: 3.2.5</a>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">푸터</footer>
+    </body>
+</html>

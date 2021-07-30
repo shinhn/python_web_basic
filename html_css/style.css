@@ -1,0 +1,184 @@
+/*    * 선택자 : 모든 요소를 의미   */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* box를 border까지 포함한 박스로 해야 배치, 관리하기 편리하므로 요즘은 border-box를 많이 사용한다고 함 */
+}
+/* 
+::before - 가상요소 중 하나로, 요소의 콘텐츠 시작부분에 생성된 콘텐츠를 추가한다.
+::after - 요소의 콘텐츠 끝부분에 생성된 콘텐츠를 추가한다.
+*/
+html {
+  font-size: 10px;
+}
+body {
+  min-width: 1060px;
+  font-size: 1.8rem; /* rem은 부모 엘리먼트가 아니라 최상위 html 엘리먼트에 상대적이다. 즉, 부모 크기에 의해 폰크 크기가 정해지지 않도록 하여 합성 문제를 제거함*/
+  line-height: 1.6;
+  font-family: Roboto, Avenir, sans-serif;
+}
+a {
+  text-decoration: None; /* 하이퍼링크에 본래 설정되어 있는 꾸밈 속성을 제거*/
+}
+
+/* HEADER */
+.header {
+  background: #094b32;
+  height: 72px;
+  padding: 15px 0 4px;
+}
+.container,
+.container-float {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative; /* relative - 다른 요소에 영향을 주지 않고, 자기 자신을 기준으로 top,left,right,bottom 값에 따라 적용 */
+}
+/* margin: padding: 등 한번에 입력할 경우
+4개 - (top), (right), (bottom), (left)
+3개 - (top), (right & left), (bottom)
+2개 - (top & bottom), (right & left)
+1개 - (top & right & bottom & left)
+*/
+
+.container-float::after {
+  /* 자식 요소의 높이를 제대로 인지하지 못하는 문제를 해결하기 위해 */
+  /* ::after - 보통 content 속성과 함께 짝지어, 요소에 장식용 콘텐츠를 추가할 때 사용 */
+  display: block;
+  content: "";
+  clear: both;
+}
+.logo {
+  position: absolute; /* absolute - 다른 요소와 전혀 상관 없이 절대적인 위치 값을 갖는다 */
+  top: 0;
+  left: 0;
+  margin: 0;
+  margin-left: 35px;
+  padding-left: inherit; /* position: absolute 을 주면 부모의 상속값을 잘 받아오지 못하기 때문에 상속값을 받아 한번 더 속성값 부여 */
+}
+.nav {
+  text-align: right;
+}
+/* <ul>
+    <li>
+    <li>
+    선언을 할 경우 자동으로 줄바꿈 현상이 일어나고 이를 inline-block으로 바꿀 시 예상치 못한 <li>간의 간격이 자동으로 생성된다.
+    이를 해결하기 위한 tip으로, <ul>의 font-size를 0으로 주고 <li>의 font-size를 따로 지정해주는 방법이 있음*/
+.list {
+  margin: 0;
+  font-size: 0;
+}
+.list-item {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase; /* html파일에서 일일이 바꿔주지 않아도 일괄적으로 대문자로 변경 */
+}
+.list-item > a {
+  /* > : 바로 아래 자식 요소*/
+  color: white;
+  display: block;
+  padding: 10px;
+}
+.list-item > a:hover {
+  color: #c4f1da;
+}
+
+/* MAIN */
+.hero-section {
+  text-align: center;
+  padding: 50px 0;
+  border-bottom: 1px solid #cfe3dc;
+}
+.intro-desc {
+  width: 700;
+  font-weight: 300;
+  font-size: 3.6rem;
+  line-height: 1.3;
+}
+.cta {
+  display: block;
+  width: 300px;
+  font-weight: 600;
+  color: white;
+  margin: 0 auto 60px;
+  padding: 20px 50px;
+  border-radius: 8px;
+  background: #44b78b;
+}
+.cta:hover {
+  background: #51be95;
+}
+.main-content {
+  float: left;
+  width: 70%;
+}
+.mailing {
+  float: left;
+  width: 46%;
+  margin-right: 3%;
+}
+.mailing-title {
+  color: #44b78b;
+  font-weight: 500;
+}
+.mailing-title:hover {
+  color: #71c7a6;
+}
+.mailing-desc {
+  font-weight: 340;
+  font-size: 1.4rem;
+}
+#mailing-desc-contr2 {
+  border-bottom: 1px solid #cfe3dc;
+}
+.side-content {
+  background: #f8f8f8;
+  float: right;
+  width: 30%;
+}
+.mailing-form {
+  margin: 10px 0 30px;
+}
+.mailing-form > label {
+  /* 1. 단순히 보이지 않게 처리
+  display: none;
+  visibility: hidden; */
+
+  /* 2. 보이지 않게 하면서 screen reader은 인식할 수 있게 처리 
+        screen reader: 시각장애인, 난독증 환자를 위한 컴퓨터 화면 낭독 소프트웨어*/
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  background: grey; /* 여기까지 하면 점하나의 크기로 표현됨 */
+  margin: -1px;
+  clip: rect(0, 0, 0, 0); /* 숨김 작업 */
+}
+form {
+  position: relative;
+}
+input[type="email"] {
+  width: 100%;
+  border: 1px solid #cfe3dc;
+  border-radius: 4px;
+  height: 4rem;
+  padding: 6px 80px 8px 10px;
+}
+.mailing-form-btn {
+  position: absolute;
+  top: 20%;
+  right: 10px;
+  border: 0;
+  background: transparent;
+  color: #44b78b;
+  cursor: pointer;
+}
+.mailing-form-btn:hover {
+  color: black;
+}
+/* FOOTER */
+.footer {
+  background: purple;
+  clear: both; /* 위 요소들의 영향을 제거 */
+}
