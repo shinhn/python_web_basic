@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from fc_user.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # fc_user/ 아래로 오는 모든 url들은 fc_user의 urls에서 관리
-    path('fc_user/', include('fc_user.urls'))
+    path('fc_user/', include('fc_user.urls')),
+    path('', home)
 ]

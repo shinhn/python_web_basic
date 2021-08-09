@@ -82,6 +82,12 @@ python3 manage.py makemigrations
 
 -> migrations 파일에 initial.py가 생성이 되는데, 필드값을 읽어 db 생성을 위한 설정값들이 나옴
 
+# model 변경
+
+```
+python3 manage.py migrate
+```
+
 # db 생성
 
 ```
@@ -118,7 +124,7 @@ app의 admin.py 파일
 # 회원가입 페이지 만들기
 
 1. templates 파일에 회원가입 페이지를 띄울 register.html를 만들고 작성
-   기본적인 틀은 bootstrap을 이용하였음 (프론트엔드 오픈 소스 툴킷)
+   기본적인 틀은 bootstrap에서 가져와 수정하였음 (프론트엔드 오픈 소스 툴킷)
 
 2. template과 view 연결
    view.py 작성
@@ -126,3 +132,25 @@ app의 admin.py 파일
 3. url 설정 (http://127.0.0.1:8000/fc_user/register)
    project -> url.py 작성 (app자체에서 url을 관리할 수 있게)  
    app -> url.py 생성 후 작성 (register url 추가)
+
+4. data 가져오기
+   register.html에서 <form> 태그에 속성 추가
+   ```
+   <form method="POST" action=".">
+   ```
+
+# static 추가
+
+: bootstrap에서 가져온 template에 css, javascript 등을 추가하기 위한 파일
+
+1. project안에 static이라는 파일을 생성하고
+2. settings.py에서 경로 추가
+   ```
+   STATIC_URL = '/static/'
+   ```
+3. html에 css 추가
+   ```
+   <link rel="stylesheet" href="/static/bootstrap.min.css">
+   ```
+
+# 로그인 페이지 만들기
