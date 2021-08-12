@@ -139,11 +139,11 @@ app의 admin.py 파일
    <form method="POST" action=".">
    ```
 
-# static 추가
+# css, javascript 입히기
 
 : bootstrap에서 가져온 template에 css, javascript 등을 추가하기 위한 파일
 
-1. project안에 static이라는 파일을 생성하고
+1. project안에 static이라는 파일 생성 후 css 혹은 javascript 추가
 2. settings.py에서 경로 추가
    ```
    STATIC_URL = '/static/'
@@ -154,3 +154,23 @@ app의 admin.py 파일
    ```
 
 # 로그인 페이지 만들기
+
+1. templates -> login.html 구성하기
+2. views.py -> login 작성
+   - model에서 가져온 password와 입력한 password를 비교하는 check_password를 사용할 때 오류 발생
+     ```
+     from django.contrib.auth.hashers import make_password, check_password
+     ```
+     check_password는 일반 텍스트 암호를 데이터베이스의 해시된 암호와 비교하므로 데이터 베이스 상의 암호가 해시 형태여야 함  
+      해시 형태로 만들기 위해 애초 register에서 password를 저장할 때 make_password를 통해 해시로 만든 후 저장
+   - make_password를 사용할 때 오류 발생
+     ```
+     (terminal)
+     pip3 install bcrypt
+     ```
+     bcrypt 설치로 오류 해결
+
+# 로그아웃 만들기
+html 따로 필요 없이 session에서 해당 user만 지워주면 됨
+1. view.py 작성
+2. urls.py 연결
